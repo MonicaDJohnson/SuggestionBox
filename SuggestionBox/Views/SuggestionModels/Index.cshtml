@@ -1,0 +1,46 @@
+﻿
+<link href="~/Content/sugIndexStyle.css" rel="stylesheet" />
+@model IEnumerable<SuggestionBox.Models.SuggestionModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<div class="container-fluid">
+    <div class="row">
+
+        <div class="col">
+            @Html.DisplayNameFor(model => model.Topic)
+        </div>
+        <div class="col">
+            @Html.DisplayNameFor(model => model.Suggestion)
+        </div>
+        <div class="col">
+            actions
+        </div>
+    </div>
+
+    @foreach (var item in Model)
+    {
+        <div class="row">
+            <div class="col">
+                @Html.DisplayFor(modelItem => item.Topic)
+            </div>
+            <div class="col">
+                @Html.DisplayFor(modelItem => item.Suggestion)
+            </div>
+            <div class="col">
+                @Html.ActionLink("Edit", "Edit", new { id = item.RecordNum }) |
+                @Html.ActionLink("Details", "Details", new { id = item.RecordNum }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.RecordNum })
+            </div>
+            }
+
+        </div>
+    }
+</div>
